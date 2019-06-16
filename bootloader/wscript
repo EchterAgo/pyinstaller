@@ -488,7 +488,8 @@ def configure(ctx):
             ctx.env.append_value('CFLAGS', '-g')
     else:
         if ctx.env.DEST_OS != 'sunos':
-            ctx.env.append_value('CFLAGS', '-O2')
+            # Optimize for size
+            ctx.env.append_value('CFLAGS', '-Os')
         else:
             # Solaris SUN CC doesn't support '-O2' flag
             ctx.env.append_value('CFLAGS', '-O')
